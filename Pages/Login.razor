@@ -1,0 +1,56 @@
+﻿@page "/Login"
+
+<h3>Login</h3>
+<div class="card-header">
+    <EditForm Model="@newUser" OnInvalidSubmit="OnValidSubmit">
+        <div class="row">
+            <div>
+                <label>
+                    UserName:
+                    <input id="userName" @bind-value="@newUser.UserName" />
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Email:
+                    <input id="email" @bind-value="@newUser.Email" />
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Password:
+                    <input id="password" @bind-value="@newUser.Password" />
+                </label>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+    </EditForm>
+</div>
+@code {
+    private User newUser = new User();
+    public void OnValidSubmit() 
+    { 
+    
+    }
+
+    public class User
+    {
+            
+        [Required(ErrorMessage = "Username is required")]
+        [MaxLength(50)]
+        public string UserName { get; set; }
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Username is required")]
+        public string Password { get; set; }
+        //[MaxLength(150)]
+        [StringLength(1,ErrorMessage = "Email to long!")]
+        [Required(ErrorMessage = "Email is required")]
+        public string Email { get; set; }
+        public double AverageRating { get; set; } = 0;
+    }
+
+}

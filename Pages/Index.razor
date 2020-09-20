@@ -1,0 +1,58 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<h1>Lediga Objekt</h1>
+
+@if (HouseObjects == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="container">
+        <div class="d-flex flex-wrap" style="justify-content: center;">
+            @foreach (var s in HouseObjects)
+            {
+                <div class="p-2">
+                    <div class="card" style="width:300px; height: 300px; border: 1px solid #21211f;">
+                        <div class="card-body text-dark cards">
+                            <h4 class="card-title">@s.Title - @s.Id</h4>
+                            <p>Adress: @s.Address </p>
+                            <p>Type: @s.Type</p>
+                            <p>Description: @s.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+@code {
+
+
+    private RealEstate[] HouseObjects;
+    protected override async Task OnInitializedAsync() =>
+        HouseObjects = await Http.GetFromJsonAsync<RealEstate[]>("http://localhost:5000/api/RealEstates");
+
+    public class RealEstate
+    {
+        private DateTime time;
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Address { get; set; }
+        public string Description { get; set; }
+        public int Type { get; set; }
+        public int RentingPrice { get; set; }
+        public int PurchasePrice { get; set; }
+        public bool CanBeRented { get; set; }
+        public bool CanBePurchased { get; set; }
+        public string Contact { get; set; }
+        public string ConstructionYear { get; set; }
+        public DateTimeOffset adCreated { get; set; }
+        //public User Creator { get; set; }
+        public int UserId { get; set; }
+
+    }
+
+
+}
