@@ -1,0 +1,9 @@
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\bin\Debug\netstandard2.1\TeamRedFrontEnd.Shared.deps.json
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\bin\Debug\netstandard2.1\TeamRedFrontEnd.Shared.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\bin\Debug\netstandard2.1\TeamRedFrontEnd.Shared.pdb
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\obj\Debug\netstandard2.1\TeamRedFrontEnd.Shared.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\obj\Debug\netstandard2.1\TeamRedFrontEnd.Shared.AssemblyInfoInputs.cache
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\obj\Debug\netstandard2.1\TeamRedFrontEnd.Shared.AssemblyInfo.cs
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\obj\Debug\netstandard2.1\TeamRedFrontEnd.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\obj\Debug\netstandard2.1\TeamRedFrontEnd.Shared.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\TeamRedFrontEnd\Shared\obj\Debug\netstandard2.1\TeamRedFrontEnd.Shared.pdb
