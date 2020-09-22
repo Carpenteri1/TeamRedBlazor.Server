@@ -1,0 +1,38 @@
+﻿@page "/"
+@inject RealEstateService Service
+
+
+<h1>RealEstates</h1>
+
+@if (RealEstatesArray == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="container" >
+        <div class="d-flex flex-wrap" style="justify-content: center;">
+            @foreach (var objectData in RealEstatesArray)
+            {
+                <div class="p-2">
+                    <button class="card" onclick="location.href='/counter'" style="width:250px; height: 250px; border: 1px solid #21211f;">
+                        <div class="card-body text-dark cards">
+                            <h4 class="card-title">@objectData.Title</h4>
+                            <p>Adress: @objectData.Address</p>
+                        </div>
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code {
+
+    private RealEstateModel[] RealEstatesArray;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //RealEstatesArray = await Service.GetRealEstateAsync();
+    }
+}
