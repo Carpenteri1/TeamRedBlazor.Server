@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net.Sockets;
-using TeamRedBlazor.Server.Data.Models;
+using TeamRedBlazor.Client.Server.Data.Models;
 
-namespace TeamRedBlazor.Server.Data.Services
+namespace TeamRedBlazor.Client.Server.Data.Services
 {
     public class RealEstateService
     {

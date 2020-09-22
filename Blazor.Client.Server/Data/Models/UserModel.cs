@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TeamRedBlazor.Server.Data.Models
+namespace TeamRedBlazor.Client.Server.Data.Models
 {
     public class UserModel
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace TeamRedBlazor.Server.Data.Services
+namespace TeamRedBlazor.Client.Server.Data.Services
 {
     public class UserService
     {

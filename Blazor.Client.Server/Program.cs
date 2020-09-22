@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace TeamRedBlazor.Server
+namespace TeamRedBlazor.Client.Server
 {
     public class Program
     {

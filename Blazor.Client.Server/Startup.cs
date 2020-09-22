@@ -9,14 +9,12 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TeamRedBlazor.Server.Data.Services;
+using TeamRedBlazor.Client.Server.Data.Services;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using IdentityServer4.Test;
-using IdentityServer4.Models;
 
-namespace TeamRedBlazor.Server
+namespace TeamRedBlazor.Client.Server
 {
     public class Startup
     {
@@ -38,8 +36,8 @@ namespace TeamRedBlazor.Server
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie();
-
+            .AddCookie();
+            
             if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
             {
                 services.AddSingleton<HttpClient>();
@@ -67,7 +65,6 @@ namespace TeamRedBlazor.Server
             app.UseAuthorization();
            
             app.UseRouting();
-            app.UseIdentityServer();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace TeamRedBlazor.Server.Data.Models
+namespace TeamRedBlazor.Client.Server.Data.Models
 {
     public class RealEstateModel
     {
