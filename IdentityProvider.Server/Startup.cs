@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityProvider.Server.Configuration;
 using IdentityServer4;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityProvider.Server
 {
@@ -18,26 +20,18 @@ namespace IdentityProvider.Server
         public void ConfigureServices(IServiceCollection services)
         {
             //add identity server here
+            services.AddIdentityServer()
+                .AddTestUsers(InMemoryConfiguration.TestUsers().ToList())
+                .AddInMemoryApiResources(InMemoryConfiguration.ApiResource())
+                .AddInMemoryClients(InMemoryConfiguration.Clients());
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory logger)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            app.UseRouting();
-            //app.UseIdentityServer();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });
+            app.UseDeveloperExceptionPage();
+            app.UseIdentityServer();
         }
     }
 }
