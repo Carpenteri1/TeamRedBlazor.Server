@@ -13,6 +13,8 @@ using TeamRedBlazor.Server.Data.Services;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using IdentityServer4.Test;
+using IdentityServer4.Models;
 
 namespace TeamRedBlazor.Server
 {
@@ -37,7 +39,6 @@ namespace TeamRedBlazor.Server
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie();
-
 
             if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
             {
@@ -64,9 +65,9 @@ namespace TeamRedBlazor.Server
 
             app.UseAuthentication();
             app.UseAuthorization();
-
-
+           
             app.UseRouting();
+            app.UseIdentityServer();
 
             app.UseEndpoints(endpoints =>
             {
