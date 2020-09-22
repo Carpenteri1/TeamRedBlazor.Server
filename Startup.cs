@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TeamRedBlazor.Server.Data.Services;
 using System.Net.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace TeamRedBlazor.Server
 {
@@ -31,7 +33,13 @@ namespace TeamRedBlazor.Server
             services.AddServerSideBlazor();
             services.AddSingleton<RealEstateService>();
 
-            if(!services.Any(x => x.ServiceType == typeof(HttpClient)))
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+
+
+            if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
             {
                 services.AddSingleton<HttpClient>();
             }
@@ -53,6 +61,10 @@ namespace TeamRedBlazor.Server
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
 
             app.UseRouting();
 
