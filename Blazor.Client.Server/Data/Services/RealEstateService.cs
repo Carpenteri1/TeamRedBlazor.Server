@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Net.Sockets;
 using TeamRedBlazor.Client.Server.Data.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TeamRedBlazor.Client.Server.Data.Services
 {
+    [Authorize]
     public class RealEstateService
     {
         private const string _ApiUrlBase = "http://localhost:5000/";
@@ -54,8 +56,10 @@ namespace TeamRedBlazor.Client.Server.Data.Services
             try
             {
                     string respons = await _httpClient.GetStringAsync(sUrl);
-                    realEstates = JsonConvert.DeserializeObject<RealEstateModel[]>(respons);
-                    return realEstates;   
+                if(respons != null)
+                {realEstates = JsonConvert.DeserializeObject<RealEstateModel[]>(respons);
+                    return realEstates;
+                }
             }
             catch(SocketException e)
             {
@@ -69,8 +73,8 @@ namespace TeamRedBlazor.Client.Server.Data.Services
             {
 
             }
-       
-            return realEstates = null;
+            return null;
+           
         }
     }
 }

@@ -39,6 +39,13 @@ C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Serv
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\obj\Debug\netcoreapp3.1\TeamRedBlazor.Client.Server.genruntimeconfig.cache
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\obj\Debug\netcoreapp3.1\TeamRedBlazor.Client.Server.csprojAssemblyReference.cache
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\obj\Debug\netcoreapp3.1\TeamRedBlazor.Client.Server.csproj.CoreCompileInputs.cache
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\obj\Debug\netcoreapp3.1\TeamRedBlazor.Client.Server.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\Blazor.Client.Server\obj\Debug\netcoreapp3.1\RazorDeclaration\TeamRedBlazor.Client.Server.dll

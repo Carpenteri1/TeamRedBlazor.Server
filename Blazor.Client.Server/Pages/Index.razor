@@ -1,7 +1,6 @@
 ﻿@page "/"
 @inject RealEstateService Service
 
-
 <h1>RealEstates</h1>
 
 @if (RealEstatesArray == null)
@@ -33,6 +32,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        //RealEstatesArray = await Service.GetRealEstateAsync();
+        RealEstatesArray = await Service.GetRealEstateAsync();
     }
 }

@@ -13,6 +13,7 @@ using TeamRedBlazor.Client.Server.Data.Services;
 using System.Net.Http;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 namespace TeamRedBlazor.Client.Server
 {
@@ -35,8 +36,28 @@ namespace TeamRedBlazor.Client.Server
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddCookie();
+            services.AddAuthentication(options =>
+            {
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+            })
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, 
+                options =>
+              {
+                  options.Authority = "https://localhost:59420";
+                  options.ClientId = "IdentityProvider.Server";
+                  options.ClientSecret = "f2accb72-c64c-4ef7-9129-77a031aa4d53";
+                  options.ResponseType = "code id_token";
+                  options.Scope.Add("openid");
+                  options.Scope.Add("profile");
+                  options.Scope.Add("email");
+                  //options.CallbackPath = 
+                  options.SaveTokens = true;
+                  options.GetClaimsFromUserInfoEndpoint = true;
+              });
+              
+            
             
             if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
             {
@@ -60,11 +81,11 @@ namespace TeamRedBlazor.Client.Server
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
-            app.UseAuthentication();
-            app.UseAuthorization();
-           
+  
             app.UseRouting();
+
+            app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {

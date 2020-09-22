@@ -1,8 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace TeamRedBlazor.Client.Server.Data.Models
-{
+{       
+    
     public class RealEstateModel
     {
         [Required]

@@ -68,3 +68,4 @@ C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Serv
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\IdentityProvider.Server\obj\Debug\netcoreapp3.1\IdentityProvider.Server.dll
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\IdentityProvider.Server\obj\Debug\netcoreapp3.1\IdentityProvider.Server.pdb
 C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\IdentityProvider.Server\obj\Debug\netcoreapp3.1\IdentityProvider.Server.genruntimeconfig.cache
+C:\Users\Admin\source\repos\AspNet 2 Projekt\OfficialSolution\TeamRedBlazor.Server\IdentityProvider.Server\bin\Debug\netcoreapp3.1\libman.json
