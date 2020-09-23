@@ -208,21 +208,6 @@
           }
         }
       },
-      "System.Security.Cryptography.OpenSsl/4.7.0": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp3.0/System.Security.Cryptography.OpenSsl.dll": {}
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/System.Security.Cryptography.OpenSsl.dll": {}
-        },
-        "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp3.0/System.Security.Cryptography.OpenSsl.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          }
-        }
-      },
       "System.Text.Encodings.Web/4.7.0": {
         "type": "package",
         "compile": {
@@ -562,41 +547,6 @@
         "version.txt"
       ]
     },
-    "System.Security.Cryptography.OpenSsl/4.7.0": {
-      "sha512": "SnyVFMSDyiXJuAdO6aDoqTN9r0htkh+ff2//4Hjnnynzfgw1mREDKcrUwwB3dlTK/QTSSxFFf+Kmwea2JSYgnA==",
-      "type": "package",
-      "path": "system.security.cryptography.openssl/4.7.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/netcoreapp2.1/System.Security.Cryptography.OpenSsl.dll",
-        "lib/netcoreapp3.0/System.Security.Cryptography.OpenSsl.dll",
-        "lib/netcoreapp3.0/System.Security.Cryptography.OpenSsl.xml",
-        "lib/netstandard1.6/System.Security.Cryptography.OpenSsl.dll",
-        "lib/netstandard2.0/System.Security.Cryptography.OpenSsl.dll",
-        "lib/netstandard2.0/System.Security.Cryptography.OpenSsl.xml",
-        "ref/netcoreapp2.0/System.Security.Cryptography.OpenSsl.dll",
-        "ref/netcoreapp2.0/System.Security.Cryptography.OpenSsl.xml",
-        "ref/netcoreapp2.1/System.Security.Cryptography.OpenSsl.dll",
-        "ref/netcoreapp2.1/System.Security.Cryptography.OpenSsl.xml",
-        "ref/netcoreapp3.0/System.Security.Cryptography.OpenSsl.dll",
-        "ref/netcoreapp3.0/System.Security.Cryptography.OpenSsl.xml",
-        "ref/netstandard1.6/System.Security.Cryptography.OpenSsl.dll",
-        "ref/netstandard2.0/System.Security.Cryptography.OpenSsl.dll",
-        "ref/netstandard2.0/System.Security.Cryptography.OpenSsl.xml",
-        "runtimes/unix/lib/netcoreapp2.0/System.Security.Cryptography.OpenSsl.dll",
-        "runtimes/unix/lib/netcoreapp2.1/System.Security.Cryptography.OpenSsl.dll",
-        "runtimes/unix/lib/netcoreapp3.0/System.Security.Cryptography.OpenSsl.dll",
-        "runtimes/unix/lib/netcoreapp3.0/System.Security.Cryptography.OpenSsl.xml",
-        "runtimes/unix/lib/netstandard1.6/System.Security.Cryptography.OpenSsl.dll",
-        "system.security.cryptography.openssl.4.7.0.nupkg.sha512",
-        "system.security.cryptography.openssl.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Text.Encodings.Web/4.7.0": {
       "sha512": "IJanJWPQvya2sbGStt3Fkdy4IaomUBSadAfYWeJDQw0zclMk9ixSvMeei6cSmTTQ6ZkGIIAbhHZVCoLR7GgX7Q==",
       "type": "package",
@@ -622,8 +572,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "IdentityServer4 >= 4.1.0",
-      "IdentityServer4.AccessTokenValidation >= 3.0.1",
-      "System.Security.Cryptography.OpenSsl >= 4.7.0"
+      "IdentityServer4.AccessTokenValidation >= 3.0.1"
     ]
   },
   "packageFolders": {
@@ -674,10 +623,6 @@
           "IdentityServer4.AccessTokenValidation": {
             "target": "Package",
             "version": "[3.0.1, )"
-          },
-          "System.Security.Cryptography.OpenSsl": {
-            "target": "Package",
-            "version": "[4.7.0, )"
           }
         },
         "imports": [

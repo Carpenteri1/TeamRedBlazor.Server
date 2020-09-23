@@ -38,13 +38,15 @@ namespace TeamRedBlazor.Client.Server
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
+            services.AddAuthentication("Identity.Application");
+            /*
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
                 // options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
             })
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
-                /*.AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, 
+                .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, 
                 options =>
               {
                   options.Authority = "https://localhost:59420";

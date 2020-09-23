@@ -48,10 +48,6 @@
             "IdentityServer4.AccessTokenValidation": {
               "target": "Package",
               "version": "[3.0.1, )"
-            },
-            "System.Security.Cryptography.OpenSsl": {
-              "target": "Package",
-              "version": "[4.7.0, )"
             }
           },
           "imports": [
