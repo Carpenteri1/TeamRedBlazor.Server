@@ -1,5 +1,6 @@
 ﻿@page "/Users"
 @inject UserService Service
+@attribute [Authorize]
 <h1>RealEstates</h1>
 
 @if (UserArray == null)
