@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "cWhuFuRRd+anTaRYi3BO4Lm739b00hyYQXftxVZypqLPLoi5PesWqUkKybVJKxZRn2eQoXkMeo5kCw32AO86Aw==",
+  "dgSpecHash": "Wwo6qpF36y61hrxF6PK9fxMa+rgX5LLo0yg1lGuJH51U1B1JPP/2lQVX+BBMct1J/XayNAy7YqRQMUT1lKKc/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\AspNet 2 Projekt\\OfficialSolution\\TeamRedBlazor.Server\\IdentityProvider.Server\\IdentityProvider.Server.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\IdentityProvider.Server\\IdentityProvider.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\identitymodel.aspnetcore.oauth2introspection\\4.0.1\\identitymodel.aspnetcore.oauth2introspection.4.0.1.nupkg.sha512",
@@ -19,6 +19,7 @@
     "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.identitymodel.tokens.jwt\\5.6.0\\system.identitymodel.tokens.jwt.5.6.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\system.security.cryptography.openssl\\4.7.0\\system.security.cryptography.openssl.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\system.text.encodings.web\\4.7.0\\system.text.encodings.web.4.7.0.nupkg.sha512"
   ],
   "logs": []

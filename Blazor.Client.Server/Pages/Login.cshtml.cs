@@ -14,6 +14,9 @@ namespace TeamRedBlazor.Client.Server.Pages
     public class LoginModel : PageModel
     {
         [BindProperty]
+        public string UserName { get; set; }
+        [BindProperty]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [BindProperty]

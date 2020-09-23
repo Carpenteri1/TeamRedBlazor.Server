@@ -6,27 +6,28 @@ using Newtonsoft.Json;
 using System.Net.Sockets;
 using TeamRedBlazor.Client.Server.Data.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace TeamRedBlazor.Client.Server.Data.Services
 {
     [Authorize]
     public class RealEstateService
     {
-        private const string _ApiUrlBase = "http://localhost:5000/";
+        private const string _ApiUrlBase = "http://localhost:5000/api/RealEstates";
         private readonly HttpClient _httpClient;
-        public RealEstateService(HttpClient httpClient)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public RealEstateService(HttpClient httpClient, IHttpContextAccessor httpContextAccessor)
         {
-            _httpClient = httpClient;
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+            _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
         }
 
         public async Task<RealEstateModel> GetRealEstateDetailAsync(int id)
         {
-            RealEstateModel realEstate;
-            string sUrl = _ApiUrlBase + "api/RealEstate/"+id;
+            string response = await GetApiResponse(_ApiUrlBase+id);
             try
             {
-                string response = await _httpClient.GetStringAsync(sUrl);
-                realEstate = JsonConvert.DeserializeObject<RealEstateModel>(response);
+                RealEstateModel realEstate = JsonConvert.DeserializeObject<RealEstateModel>(response);
                 return realEstate;
             }
             catch (SocketException e)
@@ -37,29 +38,25 @@ namespace TeamRedBlazor.Client.Server.Data.Services
             {
                 Console.WriteLine(e.Message);
             }
+            catch (ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             finally
             {
 
             }
-
-
             return null;
         }
 
 
         public async Task<RealEstateModel[]> GetRealEstateAsync()
         {
-
-            RealEstateModel [] realEstates;
-            string sUrl = _ApiUrlBase + "api/RealEstates";
-
+            string response = await GetApiResponse(_ApiUrlBase);
             try
             {
-                    string respons = await _httpClient.GetStringAsync(sUrl);
-                if(respons != null)
-                {realEstates = JsonConvert.DeserializeObject<RealEstateModel[]>(respons);
-                    return realEstates;
-                }
+                    RealEstateModel [] realEstates = JsonConvert.DeserializeObject<RealEstateModel[]>(response);
+                    return realEstates;  
             }
             catch(SocketException e)
             {
@@ -69,12 +66,26 @@ namespace TeamRedBlazor.Client.Server.Data.Services
             {
                 Console.WriteLine(e.Message);
             }
+            catch(ArgumentNullException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             finally
             {
 
             }
             return null;
            
+        }
+
+        private async Task<string> GetApiResponse(string Url)
+        {
+            string respons = await _httpClient.GetStringAsync(Url);
+            if(respons != null)
+            {
+                return respons;
+            }
+            return null;
         }
     }
 }
