@@ -24,10 +24,10 @@ namespace TeamRedBlazor.Client.Server.Data.Services
 
         public async Task<RealEstateModel> GetRealEstateDetailAsync(int id)
         {
-            string response = await GetApiResponse(_ApiUrlBase+id);
             try
             {
-                RealEstateModel realEstate = JsonConvert.DeserializeObject<RealEstateModel>(response);
+                string respons = await _httpClient.GetStringAsync(_ApiUrlBase);
+                RealEstateModel realEstate = JsonConvert.DeserializeObject<RealEstateModel>(respons);
                 return realEstate;
             }
             catch (SocketException e)
@@ -52,11 +52,11 @@ namespace TeamRedBlazor.Client.Server.Data.Services
 
         public async Task<RealEstateModel[]> GetRealEstateAsync()
         {
-            string response = await GetApiResponse(_ApiUrlBase);
             try
             {
-                    RealEstateModel [] realEstates = JsonConvert.DeserializeObject<RealEstateModel[]>(response);
-                    return realEstates;  
+                string respons = await _httpClient.GetStringAsync(_ApiUrlBase);
+                RealEstateModel [] realEstates = JsonConvert.DeserializeObject<RealEstateModel[]>(respons);
+                return realEstates;  
             }
             catch(SocketException e)
             {
@@ -73,17 +73,6 @@ namespace TeamRedBlazor.Client.Server.Data.Services
             finally
             {
 
-            }
-            return null;
-           
-        }
-
-        private async Task<string> GetApiResponse(string Url)
-        {
-            string respons = await _httpClient.GetStringAsync(Url);
-            if(respons != null)
-            {
-                return respons;
             }
             return null;
         }

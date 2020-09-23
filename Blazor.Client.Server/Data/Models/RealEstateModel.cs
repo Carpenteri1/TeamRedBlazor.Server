@@ -8,6 +8,8 @@ namespace TeamRedBlazor.Client.Server.Data.Models
     
     public class RealEstateModel
     {
+        public int Id { get; set; }
+
         [Required]
         [MaxLength(50)]
         public string Title { get; set; }

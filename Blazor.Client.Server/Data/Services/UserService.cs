@@ -29,7 +29,8 @@ namespace TeamRedBlazor.Client.Server.Data.Services
         {
             try
             {
-               var users = JsonConvert.DeserializeObject<UserModel[]>(await GetApiResponse(_ApiBaseAdress));
+                string respons = await _httpClient.GetStringAsync(_ApiBaseAdress);
+                var users = JsonConvert.DeserializeObject<UserModel[]>(respons);
                return users;
             }
             catch (SocketException e)
@@ -50,15 +51,5 @@ namespace TeamRedBlazor.Client.Server.Data.Services
             }
             return null;
         }
-        private async Task<string> GetApiResponse(string s)
-        {
-            var respons = await _httpClient.GetStringAsync(s);
-            if (respons != null)
-            {
-                return respons;
-            }
-            return null;
-        }
-
     }
 }

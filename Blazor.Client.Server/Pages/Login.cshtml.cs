@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,9 +14,6 @@ namespace TeamRedBlazor.Client.Server.Pages
     public class LoginModel : PageModel
     {
         [BindProperty]
-        public string UserName { get; set; }
-        [BindProperty]
-        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [BindProperty]
@@ -49,4 +46,3 @@ namespace TeamRedBlazor.Client.Server.Pages
         }
     }
 }
-

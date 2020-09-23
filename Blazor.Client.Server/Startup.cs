@@ -39,17 +39,17 @@ namespace TeamRedBlazor.Client.Server
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             services.AddAuthentication("Identity.Application");
-            /*
+            
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                // options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+                 options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
             })
-                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme);
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, 
                 options =>
               {
-                  options.Authority = "https://localhost:59420";
+                  options.Authority = "http://localhost:59420";//IdentityProvider.server
                   options.ClientId = "IdentityProvider.Server";
                   options.ClientSecret = "secret";
                   options.ResponseType = "code id_token";
@@ -59,10 +59,20 @@ namespace TeamRedBlazor.Client.Server
                   //options.CallbackPath = 
                   options.SaveTokens = true;
                   options.GetClaimsFromUserInfoEndpoint = true;
-              });*/
-              
-            
-            
+              });
+
+            services.AddHttpClient<UserService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5000/");
+            });
+            services.AddHttpClient<RealEstateService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5000/");//API localhost
+            });/*
+            services.AddHttpClient<IJobCategoryDataService, JobCategoryDataService>(client =>
+            {
+                client.BaseAddress = new Uri("http://localhost:5000/");
+            });*/
             if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
             {
                 services.AddSingleton<HttpClient>();
@@ -90,7 +100,7 @@ namespace TeamRedBlazor.Client.Server
 
             app.UseAuthorization();
             app.UseAuthentication();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();

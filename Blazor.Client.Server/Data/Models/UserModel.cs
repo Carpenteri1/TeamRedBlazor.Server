@@ -10,6 +10,7 @@ namespace TeamRedBlazor.Client.Server.Data.Models
     [Authorize]
     public class UserModel
     {
+        public int Id { get; set; }
         [Required(ErrorMessage = "")]
         public string UserName { get; set; }
         [Required(ErrorMessage = "")]
