@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("da8e77de-2014-44a8-89ba-b174a8dd5c7c")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("59095d3e-360a-4886-add5-9a821a2aff3a")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeamRedBlazor.Client.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

@@ -14,8 +14,9 @@ namespace TeamRedBlazor.Client.Server.Pages
     {
         public async Task OnGetAsync()
         {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            await HttpContext.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme);
+            
+            //await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            //await HttpContext.ChallengeAsync(OpenIdConnectDefaults.AuthenticationScheme);
         }
     }
 }

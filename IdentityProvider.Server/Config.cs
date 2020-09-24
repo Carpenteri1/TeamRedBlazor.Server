@@ -1,9 +1,12 @@
 ﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
+
 using IdentityModel;
+using IdentityServer4;
 using IdentityServer4.Models;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace IdentityProvider.Server
 {
@@ -13,36 +16,40 @@ namespace IdentityProvider.Server
             new IdentityResource[]
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile(),
-                new IdentityResources.Email(),
-                new IdentityResource("country", new [] { "country" })
+                new IdentityResources.Profile()
             };
 
 
         public static IEnumerable<ApiResource> Apis =>
             new ApiResource[]
             {
-                new ApiResource("IdentityProviderServer",
-                    "IdentityProvider Server", 
-                    new [] { "country" })
             };
 
 
         public static IEnumerable<Client> Clients =>
             new Client[]
-            { 
+            {
                 new Client
                 {
-                    ClientId = "TeamRedBlazorClientServer",
-                    ClientName = "TeamRedBlazor Client Server",
-                    AllowedGrantTypes = GrantTypes.Hybrid, 
-                    ClientSecrets = { new Secret("108B7B4F-BEFC-4DD2-82E1-7F025F0F75D0".Sha256()) },
-                    RedirectUris = { "http://localhost:59420/signin-oidc" }, 
-                    PostLogoutRedirectUris = { "http://localhost:59420/signout-callback-oidc" },
-                    AllowOfflineAccess = true,
-                    RequireConsent = false,
-                    AllowedScopes = { "openid", "profile", "email", "IdentityProvider.Server", "country" } 
-                }                 
-            };
+                    ClientName ="TeamRed Client Server",
+                    ClientId = "teamredclientserver",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RedirectUris = new List<string>()//where the client will get tokens from.
+                    {
+                        //client host adress
+                       "https://localhost:44339/signin-oidc"
+                    },
+                    AllowedScopes = 
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    },
+                    ClientSecrets = 
+                    {
+                        //Secret is used for client authentication 
+                        //so the client can call the token endpoint
+                        new Secret("superSecret".Sha256())
+                    }
+                }};
     }
 }

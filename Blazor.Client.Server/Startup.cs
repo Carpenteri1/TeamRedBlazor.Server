@@ -1,20 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Net.Http;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TeamRedBlazor.Client.Server.Data.Services;
-using System.Net.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.AspNetCore.DataProtection;
 
 namespace TeamRedBlazor.Client.Server
 {
@@ -32,51 +25,46 @@ namespace TeamRedBlazor.Client.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor();
-            services.AddSingleton<RealEstateService>();
-            services.AddSingleton<UserService>();
+            services.AddServerSideBlazor().AddCircuitOptions(options =>
+            { options.DetailedErrors = true; });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddAuthentication("Identity.Application");
-            
+            services.AddAuthentication();
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                 options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
             })
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, 
+                .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme,
                 options =>
-              {
-                  options.Authority = "http://localhost:59420";//IdentityProvider.server
-                  options.ClientId = "IdentityProvider.Server";
-                  options.ClientSecret = "secret";
-                  options.ResponseType = "code id_token";
-                  options.Scope.Add("openid");
-                  options.Scope.Add("profile");
-                  options.Scope.Add("email");
-                  //options.CallbackPath = 
-                  options.SaveTokens = true;
-                  options.GetClaimsFromUserInfoEndpoint = true;
-              });
+                {
+                    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.Authority = "https://localhost:44313";
+                    options.ClientId = "teamredclientserver";
+                    options.ClientSecret = "superSecret";
+                    options.ResponseType = "code";
+                    options.UsePkce = true;
+                    options.Scope.Add("openid");
+                    options.Scope.Add("profile");
+                    //options.CallbackPath = "/localhost:44313/signin-oidc";
+                    options.SaveTokens = true;
 
-            services.AddHttpClient<UserService>(client =>
+                });
+            /*
+            services.AddHttpClient<IEmployeeDataService, EmployeeDataService>(client =>
             {
-                client.BaseAddress = new Uri("http://localhost:5000/");
+                client.BaseAddress = new Uri("https://localhost:44340/");
             });
-            services.AddHttpClient<RealEstateService>(client =>
+            services.AddHttpClient<ICountryDataService, CountryDataService>(client =>
             {
-                client.BaseAddress = new Uri("http://localhost:5000/");//API localhost
-            });/*
+                client.BaseAddress = new Uri("https://localhost:44340/");
+            });
             services.AddHttpClient<IJobCategoryDataService, JobCategoryDataService>(client =>
             {
-                client.BaseAddress = new Uri("http://localhost:5000/");
+                client.BaseAddress = new Uri("https://localhost:44340/");
             });*/
-            if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
-            {
-                services.AddSingleton<HttpClient>();
-            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -95,12 +83,12 @@ namespace TeamRedBlazor.Client.Server
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-  
+
             app.UseRouting();
 
-            app.UseAuthorization();
             app.UseAuthentication();
-            
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();

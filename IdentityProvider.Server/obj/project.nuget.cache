@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "N2eDjfLhYrOWR2z0Yo8ndcjmLNlfpbA9RRVwNJJA6USi6dNq32Ics90R/umVei8DU3AwxFWE3RXPJASUh41LsQ==",
+  "dgSpecHash": "1P6cJcgQyZza7cZMDnwFyATZvZ/fHsPbw8w+R02mpv49JUGDiZvisNScqv/NjF+bZezSVtGWoyWX+AYGpIAPjA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\IdentityProvider.Server\\IdentityProvider.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\identitymodel.aspnetcore.oauth2introspection\\4.0.1\\identitymodel.aspnetcore.oauth2introspection.4.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\identityserver4\\4.1.0\\identityserver4.4.1.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\identityserver4.accesstokenvalidation\\3.0.1\\identityserver4.accesstokenvalidation.3.0.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\identityserver4.storage\\4.1.0\\identityserver4.storage.4.1.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.0.0\\microsoft.aspnetcore.authentication.jwtbearer.3.0.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.0\\microsoft.aspnetcore.authentication.openidconnect.3.1.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\2.0.4\\microsoft.dotnet.platformabstractions.2.0.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.2\\microsoft.extensions.configuration.3.1.2.nupkg.sha512",
