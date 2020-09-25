@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,14 +9,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace TeamRedBlazor.Client.Server.Pages
 {
-        public class LogoutModel : PageModel
+    public class LogoutModel : PageModel
+    {
+        public async Task<IActionResult> OnGetAsync()
         {
-            public async Task<IActionResult> OnGetAsync()
-            {
-                await HttpContext
-                    .SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext
+                .SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-                return LocalRedirect(Url.Content("~/"));
-            }
+            return LocalRedirect(Url.Content("~/"));
         }
+    }
 }

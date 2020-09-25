@@ -1,18 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Net.Http;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using TeamRedBlazor.Client.Server.Data.Services;
-using System.Net.Http;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 
 namespace TeamRedBlazor.Client.Server
 {
@@ -30,18 +25,35 @@ namespace TeamRedBlazor.Client.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            services.AddServerSideBlazor();
-            services.AddSingleton<RealEstateService>();
+            services.AddServerSideBlazor().AddCircuitOptions(options =>
+            { options.DetailedErrors = true; });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-            .AddCookie();
-            
-            if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
+            services.AddAuthentication();
+            services.AddAuthentication(options =>
             {
-                services.AddSingleton<HttpClient>();
-            }
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+            })
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme,
+                options =>
+                {
+                    options.SignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                    options.Authority = "https://localhost:44313";
+                    options.ClientId = "teamredclientserver";
+                    options.ClientSecret = "superSecret";
+                    options.ResponseType = "code";
+                    options.UsePkce = true;//true when using GrandTypes code
+                    options.Scope.Add("openid");
+                    options.Scope.Add("profile");
+                    //options.Scope.Add("offline_access");
+                    //options.CallbackPath = "/localhost:44313/signin-oidc";
+                    options.SaveTokens = true;
+                    options.GetClaimsFromUserInfoEndpoint = true;
+
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,10 +73,10 @@ namespace TeamRedBlazor.Client.Server
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            app.UseRouting();
+
             app.UseAuthentication();
             app.UseAuthorization();
-           
-            app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\AspNet 2 Projekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\AspNet 2 Projekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\AspNet 2 Projekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
         "projectName": "TeamRedBlazor.Client.Server",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\AspNet 2 Projekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\AspNet 2 Projekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -41,6 +41,18 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.AspNetCore.Components.Authorization": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
             "Microsoft.AspNetCore.Http": {
               "target": "Package",
               "version": "[2.2.2, )"
@@ -52,6 +64,28 @@
             "Microsoft.AspNetCore.Http.Extensions": {
               "target": "Package",
               "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.8, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
