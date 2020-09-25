@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
         "projectName": "TeamRedBlazor.Client.Server",
-        "projectPath": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\TeamRedBlazor.Server\\Blazor.Client.Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

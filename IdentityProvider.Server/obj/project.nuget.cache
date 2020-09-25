@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1P6cJcgQyZza7cZMDnwFyATZvZ/fHsPbw8w+R02mpv49JUGDiZvisNScqv/NjF+bZezSVtGWoyWX+AYGpIAPjA==",
+  "dgSpecHash": "QWvrVS5yQHkyjydesUXm+Px2lYtvWAEmkCR7omcbOEPUCkqlGmO8utAQZcpjEdrdn/DMQ75jA7gIE9/QNL867g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\IdentityProvider.Server\\IdentityProvider.Server.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\TeamRedBlazor.Server\\IdentityProvider.Server\\IdentityProvider.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\identitymodel\\4.4.0\\identitymodel.4.4.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\identitymodel.aspnetcore.oauth2introspection\\4.0.1\\identitymodel.aspnetcore.oauth2introspection.4.0.1.nupkg.sha512",
