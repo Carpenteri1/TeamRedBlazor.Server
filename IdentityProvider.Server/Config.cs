@@ -16,7 +16,8 @@ namespace IdentityProvider.Server
             new IdentityResource[]
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResources.Email()
             };
 
 
@@ -34,16 +35,23 @@ namespace IdentityProvider.Server
                     ClientName ="TeamRed Client Server",
                     ClientId = "teamredclientserver",
                     AllowedGrantTypes = GrantTypes.Code,
+                    AlwaysIncludeUserClaimsInIdToken = true,
                     RedirectUris = new List<string>()//where the client will get tokens from.
                     {
-                        //client host adress
+                        //client host adress for signing in 
                        "https://localhost:44339/signin-oidc"
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                           //client host adress for signing out
+                         "https://localhost:44339/signout-callback-oidc"
                     },
                     AllowedScopes = 
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile
                     },
+                   // AllowOfflineAccess = true,
                     ClientSecrets = 
                     {
                         //Secret is used for client authentication 

@@ -21,8 +21,7 @@ namespace TeamRedBlazor.Client.Server.Pages
             if (!HttpContext.User.Identity.IsAuthenticated)
             {
 
-                await HttpContext.ChallengeAsync(OpenIdConnectDefaults.AuthenticationScheme, new AuthenticationProperties() { RedirectUri = "/" });
-                //await HttpContext.ChallengeAsync(OpenIdConnectDefaults.AuthenticationScheme);
+                await HttpContext.ChallengeAsync(OpenIdConnectDefaults.AuthenticationScheme);
             }
             else
             {

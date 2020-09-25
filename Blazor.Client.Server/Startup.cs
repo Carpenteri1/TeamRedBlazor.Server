@@ -45,26 +45,15 @@ namespace TeamRedBlazor.Client.Server
                     options.ClientId = "teamredclientserver";
                     options.ClientSecret = "superSecret";
                     options.ResponseType = "code";
-                    options.UsePkce = true;
+                    options.UsePkce = true;//true when using GrandTypes code
                     options.Scope.Add("openid");
                     options.Scope.Add("profile");
+                    //options.Scope.Add("offline_access");
                     //options.CallbackPath = "/localhost:44313/signin-oidc";
                     options.SaveTokens = true;
+                    options.GetClaimsFromUserInfoEndpoint = true;
 
                 });
-            /*
-            services.AddHttpClient<IEmployeeDataService, EmployeeDataService>(client =>
-            {
-                client.BaseAddress = new Uri("https://localhost:44340/");
-            });
-            services.AddHttpClient<ICountryDataService, CountryDataService>(client =>
-            {
-                client.BaseAddress = new Uri("https://localhost:44340/");
-            });
-            services.AddHttpClient<IJobCategoryDataService, JobCategoryDataService>(client =>
-            {
-                client.BaseAddress = new Uri("https://localhost:44340/");
-            });*/
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

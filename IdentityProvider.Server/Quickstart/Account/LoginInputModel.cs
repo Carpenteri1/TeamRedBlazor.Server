@@ -8,10 +8,14 @@ namespace IdentityServerHost.Quickstart.UI
 {
     public class LoginInputModel
     {
-        [Required]
+        [Required(ErrorMessage = "Username is required")]
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Password is required")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
+        //[Required(ErrorMessage = "Email is required")]
+        //[DataType(DataType.EmailAddress)]
+        //public string Email { get; set; }
         public bool RememberLogin { get; set; }
         public string ReturnUrl { get; set; }
     }
