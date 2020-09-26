@@ -1,21 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Callm\\source\\repos\\Frontend\\Frontend\\Frontend.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\Fastigheter\\TeamRedBlazor.Server\\Frontend\\Frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Callm\\source\\repos\\Frontend\\Frontend\\Frontend.csproj": {
+    "C:\\Users\\Admin\\Desktop\\Fastigheter\\TeamRedBlazor.Server\\Frontend\\Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Callm\\source\\repos\\Frontend\\Frontend\\Frontend.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Fastigheter\\TeamRedBlazor.Server\\Frontend\\Frontend.csproj",
         "projectName": "Frontend",
-        "projectPath": "C:\\Users\\Callm\\source\\repos\\Frontend\\Frontend\\Frontend.csproj",
-        "packagesPath": "C:\\Users\\Callm\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Callm\\source\\repos\\Frontend\\Frontend\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\Fastigheter\\TeamRedBlazor.Server\\Frontend\\Frontend.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\Fastigheter\\TeamRedBlazor.Server\\Frontend\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Callm\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -57,6 +62,18 @@
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
               "version": "[3.1.8, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[5.6.3, )"
             }
           },
           "imports": [
@@ -77,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

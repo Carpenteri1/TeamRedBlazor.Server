@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Frontend.Areas.Identity;
 using Frontend.Data;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Frontend
 {
@@ -39,6 +40,7 @@ namespace Frontend
             services.AddServerSideBlazor();
             services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddSingleton<WeatherForecastService>();
+            services.AddSwaggerGen();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,7 +60,11 @@ namespace Frontend
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseRouting();
 
             app.UseAuthentication();

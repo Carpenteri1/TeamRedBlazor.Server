@@ -7,31 +7,24 @@
 
 @if (forecasts == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>Laddar in fastigheter..</em></p>
 }
 else
 {
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
+
+            <div class="card-deck">
             @foreach (var forecast in forecasts)
             {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">@forecast.Summary</h5>
+                        <p class="card-text">@forecast.Date<br/>@forecast.TemperatureC<br />@forecast.TemperatureF<br/>@forecast.Summary.</p>
+                        <a href="#" class="btn btn-dark">Intresserad</a>
+                    </div>
+                </div>
             }
-        </tbody>
-    </table>
+            </div>
 }
 
 @code {
