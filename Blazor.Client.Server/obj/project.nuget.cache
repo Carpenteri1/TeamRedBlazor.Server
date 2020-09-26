@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/3KZG/58fokkx6rY6PCJp3M9UVJYTNig79WcyRxl2xaeHJBx7Ow5/YKVtg0F+JxO7gccNzD5PbYriT8PQ6tzHg==",
+  "dgSpecHash": "fdc2Gwh+E8n9Ns8BMq8eW7csnKWGXhWnaNwuXdPMc9+38yiHONMGOc+XaFp5XS02bboZD5JTHcOKDVm7KAyMVA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
+  "projectFilePath": "C:\\Users\\Admin\\source\\repos\\AspNetProjekt\\OfficialSolution\\TeamRedBlazor.Server\\Blazor.Client.Server\\TeamRedBlazor.Client.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\3.1.8\\microsoft.aspnetcore.authentication.openidconnect.3.1.8.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.8\\microsoft.aspnetcore.authorization.3.1.8.nupkg.sha512",
