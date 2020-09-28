@@ -11,10 +11,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using TeamRedBlazor.Client.Server.Shared;
 using Microsoft.AspNetCore.Components;
 
-namespace Frontend.Areas.Identity.Pages.Account
+namespace TeamRedBlazor.Client.Server.Areas.Identity.Pages.Account
 {
 
     [AllowAnonymous]

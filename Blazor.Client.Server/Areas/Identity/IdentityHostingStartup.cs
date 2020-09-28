@@ -1,5 +1,5 @@
 ﻿using System;
-using Frontend.Data;
+using TeamRedBlazor.Client.Server.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;

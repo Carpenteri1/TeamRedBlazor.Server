@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TeamRedBlazor.Client.Server.Data.Models;
 
 
-namespace TeamRedBlazor.Client.Server.Data.Models
+namespace TeamRedBlazor.Client.Server.Data.Services
 {
     public class MockDataService 
     {

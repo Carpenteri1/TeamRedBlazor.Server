@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using TeamRedBlazor.Client.Server.Data.Services;
 //using Swashbuckle.AspNetCore.Swagger;
 
 namespace TeamRedBlazor.Client.Server
@@ -25,14 +26,16 @@ namespace TeamRedBlazor.Client.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<HttpClient>();
             services.AddRazorPages();
             services.AddServerSideBlazor().AddCircuitOptions(options =>
             { options.DetailedErrors = true; });
-
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            /*services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-            services.AddSingleton<WeatherForecastService>();
-            services.AddSwaggerGen();*/
+            services.AddSingleton<RealEstateService>();
+            // services.AddSingleton<UserService>();
+          
+            //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+            //services.AddSwaggerGen();
             services.AddAuthentication();
             services.AddAuthentication(options =>
             {
@@ -72,7 +75,7 @@ namespace TeamRedBlazor.Client.Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             /*app.UseSwagger();

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Frontend.Data.Migrations
+namespace TeamRedBlazor.Client.Server.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

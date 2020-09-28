@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Frontend.Data
+namespace TeamRedBlazor.Client.Server.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

@@ -7,6 +7,8 @@ using System.Net.Sockets;
 using TeamRedBlazor.Client.Server.Data.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using System.Text.Json;
+using System.Collections.Generic;
 
 namespace TeamRedBlazor.Client.Server.Data.Services
 {
@@ -26,9 +28,12 @@ namespace TeamRedBlazor.Client.Server.Data.Services
         {
             try
             {
+                return await System.Text.Json.JsonSerializer.DeserializeAsync<RealEstateModel>
+             (await _httpClient.GetStreamAsync(_ApiUrlBase), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                /*
                 string respons = await _httpClient.GetStringAsync(_ApiUrlBase);
                 RealEstateModel realEstate = JsonConvert.DeserializeObject<RealEstateModel>(respons);
-                return realEstate;
+                return realEstate;*/
             }
             catch (SocketException e)
             {
@@ -54,9 +59,12 @@ namespace TeamRedBlazor.Client.Server.Data.Services
         {
             try
             {
+                return await System.Text.Json.JsonSerializer.DeserializeAsync<RealEstateModel[]>
+             (await _httpClient.GetStreamAsync(_ApiUrlBase), new JsonSerializerOptions() { PropertyNameCaseInsensitive = true });
+                /*
                 string respons = await _httpClient.GetStringAsync(_ApiUrlBase);
                 RealEstateModel [] realEstates = JsonConvert.DeserializeObject<RealEstateModel[]>(respons);
-                return realEstates;  
+                return realEstates;  */
             }
             catch(SocketException e)
             {

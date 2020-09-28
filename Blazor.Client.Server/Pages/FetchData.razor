@@ -1,37 +1,27 @@
 ﻿@page "/fetchdata"
-
-@using Frontend.Data
-@inject WeatherForecastService ForecastService
-
-<h1>Alla Fastigheter Tillängliga</h1>
-
-@if (forecasts == null)
-{
-    <p><em>Laddar in fastigheter..</em></p>
-}
-else
-{
-
-            <div class="card-deck">
-            @foreach (var forecast in forecasts)
-            {
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">@forecast.Summary</h5>
-                        <p class="card-text">@forecast.Date<br/>@forecast.TemperatureC<br />@forecast.TemperatureF<br/>@forecast.Summary.</p>
-                        <a href="#" class="btn btn-dark">Intresserad</a>
-                    </div>
-                </div>
-            }
-            </div>
-}
-
-@code {
-    private WeatherForecast[] forecasts;
-
-    protected override async Task OnInitializedAsync()
+@inject RealEstateService Service
+<ul>
+    @if (realEstates != null)
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+
+        @foreach (var s in realEstates)
+        {
+            <li>@s.Title</li>
+        }
+
     }
-}
+    else
+    {
+        <li>Loading....</li>
+    }
+
+</ul>
+
+        @code {
+            RealEstateModel[] realEstates;
+            private async Task GetRealEstates()
+            {
+                realEstates = await Service.GetRealEstateAsync();
+            }
+
+        }
