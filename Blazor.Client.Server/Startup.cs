@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using TeamRedBlazor.Client.Server.Data.Services;
-//using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace TeamRedBlazor.Client.Server
 {
@@ -31,12 +31,10 @@ namespace TeamRedBlazor.Client.Server
             services.AddRazorPages();
             services.AddServerSideBlazor().AddCircuitOptions(options =>
             { options.DetailedErrors = true; });
-            services.AddSingleton<RealEstateService>();
-            // services.AddSingleton<UserService>();
-          
+
             //services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
-            //services.AddSwaggerGen();
-            services.AddAuthentication();
+            services.AddMvc();
+            services.AddSwaggerGen();
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -78,11 +76,11 @@ namespace TeamRedBlazor.Client.Server
             
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            /*app.UseSwagger();
+            app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-            });*/
+            });
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
