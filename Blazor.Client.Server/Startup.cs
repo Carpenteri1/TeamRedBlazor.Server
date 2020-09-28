@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+//using Swashbuckle.AspNetCore.Swagger;
 
 namespace TeamRedBlazor.Client.Server
 {
@@ -29,7 +30,9 @@ namespace TeamRedBlazor.Client.Server
             { options.DetailedErrors = true; });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+            /*services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+            services.AddSingleton<WeatherForecastService>();
+            services.AddSwaggerGen();*/
             services.AddAuthentication();
             services.AddAuthentication(options =>
             {
@@ -70,6 +73,13 @@ namespace TeamRedBlazor.Client.Server
                 app.UseHsts();
             }
 
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            /*app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });*/
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
