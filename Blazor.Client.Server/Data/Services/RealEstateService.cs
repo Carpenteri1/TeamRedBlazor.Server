@@ -6,6 +6,9 @@ using Newtonsoft.Json;
 using System.Net.Sockets;
 using TeamRedBlazor.Client.Server.Data.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace TeamRedBlazor.Client.Server.Data.Services
 {
@@ -22,7 +25,7 @@ namespace TeamRedBlazor.Client.Server.Data.Services
         public async Task<RealEstateModel> GetRealEstateDetailAsync(int id)
         {
             RealEstateModel realEstate;
-            string sUrl = _ApiUrlBase + "api/RealEstate/" + id;
+            string sUrl = _ApiUrlBase + "api/RealEstates/" + id;
             try
             {
                 string response = await _httpClient.GetStringAsync(sUrl);
@@ -42,10 +45,38 @@ namespace TeamRedBlazor.Client.Server.Data.Services
 
             }
 
-
             return null;
         }
 
+        public async Task <RealEstateModel[]> GetRealEstates() 
+        {
+            RealEstateModel[] realEstates;
+            string sUrl = _ApiUrlBase + $"api/RealEstates";
+            try
+            {
+                string respons = await _httpClient.GetStringAsync(sUrl);
+
+                if (respons != null)
+                {
+                    realEstates = JsonConvert.DeserializeObject<RealEstateModel[]>(respons);
+                    return realEstates;
+                }
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+
+            }
+
+            return null;
+        }
 
         public async Task<RealEstateModel[]> GetRealEstateAsync()
         {

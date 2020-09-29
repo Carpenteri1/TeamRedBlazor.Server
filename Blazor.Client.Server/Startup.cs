@@ -9,7 +9,14 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using TeamRedBlazor.Client.Server.Data.Services;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.AspNetCore.SwaggerGen;
+using Swashbuckle.AspNetCore.SwaggerUI;
 using System.Reflection.Metadata.Ecma335;
+using Microsoft.OpenApi.Models;
+using System.Collections.Generic;
+using System.Reflection;
+using System.IO;
 
 namespace TeamRedBlazor.Client.Server
 {
@@ -35,9 +42,9 @@ namespace TeamRedBlazor.Client.Server
             services.AddServerSideBlazor().AddCircuitOptions(options =>
             { options.DetailedErrors = true; });
 
-         
+
             services.AddAuthentication();
-            
+
 
             services.AddAuthentication(options =>
             {
@@ -63,9 +70,26 @@ namespace TeamRedBlazor.Client.Server
 
                 });
             services.AddMvc();
-            services.AddSwaggerGen();
-         
-        }
+            services.AddControllers();
+            services.AddSwaggerGen(options => 
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "TeamRed Swagger Doc",
+                    Version = "v1",
+                    Description = "An API to perform operations",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "The Auther",
+                        Email = "TheAuther@gmail.com",
+                    }
+        });
+            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                options.IncludeXmlComments(xmlPath);
+            });
+    }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -83,10 +107,12 @@ namespace TeamRedBlazor.Client.Server
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+                
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                //c.InjectStylesheet("/swagger-ui/custom.css");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "TeamRed Swagger API V1");
             });
 
             app.UseRouting();

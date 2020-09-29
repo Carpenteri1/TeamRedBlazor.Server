@@ -23,7 +23,7 @@ namespace TeamRedBlazor.Client.Server.Data.Services
             throw new System.ArgumentNullException(nameof(httpClient));
             _httpContextAccessor = httpContextAccessor ??
             throw new System.ArgumentNullException(nameof(httpContextAccessor));
-        }
+        } 
 
         public async Task<UserModel[]> GetAllUsers()
         {
