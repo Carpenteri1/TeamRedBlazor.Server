@@ -27,7 +27,7 @@ namespace IdentityProvider.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddAuthentication();
             var builder = services.AddIdentityServer()
                 .AddInMemoryApiResources(Config.Apis)
                 .AddInMemoryClients(Config.Clients)

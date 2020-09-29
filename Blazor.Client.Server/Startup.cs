@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using TeamRedBlazor.Client.Server.Data.Services;
+using System.Reflection.Metadata.Ecma335;
 
 namespace TeamRedBlazor.Client.Server
 {
@@ -25,12 +27,18 @@ namespace TeamRedBlazor.Client.Server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<HttpClient>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddSingleton<RealEstateService>();
+            services.AddSingleton<UserService>();
+
             services.AddServerSideBlazor().AddCircuitOptions(options =>
             { options.DetailedErrors = true; });
 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
+         
             services.AddAuthentication();
+            
+
             services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -54,6 +62,9 @@ namespace TeamRedBlazor.Client.Server
                     options.GetClaimsFromUserInfoEndpoint = true;
 
                 });
+            services.AddMvc();
+            services.AddSwaggerGen();
+         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +83,11 @@ namespace TeamRedBlazor.Client.Server
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
 
             app.UseRouting();
 
@@ -80,6 +96,7 @@ namespace TeamRedBlazor.Client.Server
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
